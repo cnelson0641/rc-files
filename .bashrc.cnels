@@ -1,0 +1,78 @@
+## Basic
+alias dev='dd /mnt/c/Users/cnels/Documents/git'
+alias vimr='vim -R'
+alias dd='func_cd'
+alias ss='ls -alh --color=tty'
+alias c='clear ; pwd ; ss'
+alias word='exit'
+alias home='dd ~'
+alias cp='cp -i'
+alias rm='rm -i'
+alias mv='mv -i'
+alias v='vim'
+alias vi='vim'
+alias hex='xxd'
+alias grep='grep --color=auto'
+alias grepr='grep $1 * -ir'
+alias git_creds='cat ~/.sq_git_creds'
+alias root='sudo su root'
+alias status='echo $?'
+# Git
+alias gpull='git pull'
+alias gpush='git push'
+alias gco='git checkout'
+alias gs='git status -uno'
+alias gsa='git status -u'
+alias gb='git branch'
+alias glog='git log --name-status --pretty=fuller'
+alias gl="glog -n 10 | vim -c \"set nonumber\" -R - "
+alias gd='git diff'
+alias gdc='git diff --cached'
+## tmux
+alias tm='tmux'
+alias new='tmux new-session -s'
+alias yo='tmux ls'
+alias at='tmux attach -t $1'
+## AWS
+alias aws_sq='export AWS_PROFILE=sq_dev'
+alias aws_bgv='export AWS_PROFILE=bgvfaas_dev'
+# JSON pretty print from STDIN
+alias jsonify='python3 -m json.tool'
+
+# PATH
+export PATH=$PATH
+
+# Prompt
+PS1="\[\e[1;32m\][\u@\h \W]\$\[\e[0m\] "
+if [ $(whoami) == 'root' ]
+then
+    PS1="\[\e[1;31m\][\u@\h \W]#\[\e[0m\] "
+fi
+
+# ls color
+LS_COLORS='di=1;34'
+export LS_COLORS
+
+# TERM
+TERM='screen'
+export TERM
+
+# * includes hidden files
+shopt -s dotglob
+
+# Auto complete only files
+shopt -u progcomp
+
+# Open manpages in less
+export MANPAGER='less -R'
+
+# Functions
+func_cd() {
+    if [ -z "$@" ]  # no params
+    then
+      func_cd ..
+    else  # params
+        cd "$@" && ss
+    fi
+}
+
