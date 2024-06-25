@@ -62,6 +62,7 @@ shopt -s dotglob
 
 # Auto complete only files
 shopt -u progcomp
+complete -r
 
 # Open manpages in less
 export MANPAGER='less -R'
