@@ -38,6 +38,26 @@ alias aws_sq='export AWS_PROFILE=sq_dev'
 alias aws_bgv='export AWS_PROFILE=bgvfaas_dev'
 # JSON pretty print from STDIN
 alias jsonify='python3 -m json.tool'
+# Python
+alias py="python"                                   # python shortcut
+alias pym="python -m"                               # python -m
+alias pyi="python -i"                               # interactive mode
+alias pyt="pytest -q"                               # quick pytest run
+alias pyserve="python -m http.server 8000"          # serve current dir
+# Python venv
+alias venv="python3 -m venv .venv"                  # create venv in .venv
+alias vact="source .venv/bin/activate"              # activate venv
+alias vdeact="deactivate"                           # deactivate venv
+alias vdel="rm -rf .venv"                           # nuke venv
+alias vnew="vdel && venv && vact && pip install -U pip"  # recreate clean venv
+alias vreq="vact && pipr"                                # activate + install reqs
+# Python pip
+alias pipi="pip install"                            # install pkg
+alias pipu="pip install --upgrade"                  # upgrade pkg
+alias pipr="pip install -r requirements.txt"        # install from reqs
+alias pipf="pip freeze > requirements.txt"          # save reqs
+alias pipout="pip freeze --exclude-editable"        # list clean deps
+alias pipun="pip uninstall -y"                      # uninstall pkg
 
 # PATH
 export PATH=$PATH
