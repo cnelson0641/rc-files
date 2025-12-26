@@ -34,16 +34,18 @@ alias new='tmux new-session -s'
 alias yo='tmux ls'
 alias at='tmux attach -t $1'
 ## AWS
-alias aws_sq='export AWS_PROFILE=sq_dev'
-alias aws_bgv='export AWS_PROFILE=bgvfaas_dev'
+export AWS_SSO_AUTO_BROWSER=true
+export AWS_PROFILE=fc-dev-admin
+alias aws_test='export AWS_PROFILE=fc-test-admin'
+alias aws_login='aws sso login'
 # JSON pretty print from STDIN
 alias jsonify='python3 -m json.tool'
 # Python
-alias py="python"                                   # python shortcut
-alias pym="python -m"                               # python -m
-alias pyi="python -i"                               # interactive mode
-alias pyt="pytest -q"                               # quick pytest run
-alias pyserve="python -m http.server 8000"          # serve current dir
+alias py="python3"                                   # python shortcut
+alias pym="python3 -m"                               # python -m
+alias pyi="python3 -i"                               # interactive mode
+alias pyt="pytest3 -q"                               # quick pytest run
+alias pyserve="python3 -m http.server 8000"          # serve current dir
 # Python venv
 alias venv="python3 -m venv .venv"                  # create venv in .venv
 alias vact="source .venv/bin/activate"              # activate venv
@@ -51,9 +53,11 @@ alias vdeact="deactivate"                           # deactivate venv
 alias vdel="rm -rf .venv"                           # nuke venv
 alias vnew="vdel && venv && vact && pip install -U pip"  # recreate clean venv
 alias vreq="vact && pipr"                                # activate + install reqs
+alias vgitignore='echo "*" > .venv/.gitignore'      # venv to .gitignore
 # Python pip
 alias pipi="pip install"                            # install pkg
 alias pipu="pip install --upgrade"                  # upgrade pkg
+alias pipupip="python -m pip install --upgrade pip" # upgrade pip itself
 alias pipr="pip install -r requirements.txt"        # install from reqs
 alias pipf="pip freeze > requirements.txt"          # save reqs
 alias pipout="pip freeze --exclude-editable"        # list clean deps

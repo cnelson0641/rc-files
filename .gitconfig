@@ -3,3 +3,8 @@
 	name = Chris Nelson
 [core]
 	editor = vim
+	autocrlf = false
+[credential]
+	helper = manager
+[pull]
+	rebase = false
